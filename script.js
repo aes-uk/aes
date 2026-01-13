@@ -1,4 +1,3 @@
-<script>
   window.addEventListener("DOMContentLoaded", (event) => {
   
     // ✅ Lazy load all <video> elements with data-src
@@ -218,4 +217,3 @@
       // Optional: clean up logic here if needed
     };
   });
-</script>
