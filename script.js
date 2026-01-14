@@ -46,9 +46,9 @@ window.Webflow.push(function () {
   let mm = gsap.matchMedia();
 
   // 🔥 IMPORTANT: remove previous handlers (prevents double-binding if code runs twice)
-  navButton.off("click");
-  opensMore.off("click");
-  backButton.off("click");
+  navButton.off("click.aesnav");
+  opensMore.off("click.aesnav");
+  backButton.off("click.aesnav");
   $(document).off("keydown.aesnav");
 
   mm.add("(max-width: 991px)", () => {
@@ -77,7 +77,7 @@ window.Webflow.push(function () {
       .to(lines.eq(0), { y: 3, rotate: 45 }, "<")
       .to(lines.eq(1), { y: -4, rotate: -45 }, "<");
 
-    navButton.on("click", function () {
+    navButton.on("click.aesnav", function () {
       if (showMainMenu.progress() === 0) showMainMenu.play();
       else showMainMenu.reverse();
     });
@@ -86,7 +86,7 @@ window.Webflow.push(function () {
       if (e.key === "Escape") showMainMenu.reverse();
     });
 
-    opensMore.on("click", function () {
+    opensMore.on("click.aesnav", function () {
       previouslyFocused = $(this);
 
       // ✅ correct index
@@ -97,7 +97,7 @@ window.Webflow.push(function () {
       showSubMenu.play();
     });
 
-    backButton.on("click", function () {
+    backButton.on("click.aesnav", function () {
       showSubMenu.reverse();
     });
 
